@@ -12,7 +12,7 @@ export interface IDarkStore {
 	coordinates: string[];
 }
 
-export class DarkStore implements SerializeModel{
+export class DarkStore extends SerializeModel{
 	public id: string;
 	public netName: string;
 	public name: string;
@@ -25,6 +25,8 @@ export class DarkStore implements SerializeModel{
 	};
 
 	constructor(args: IDarkStore) {
+        super();
+        
 		this.id = args.id;
 		this.netName = args.netName;
 		this.name = args.name;
