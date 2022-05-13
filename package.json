@@ -1,0 +1,15 @@
+{
+  "name": "serialize",
+  "version": "1.0.0",
+  "description": "Serialize JSON-response to class instance objects",
+  "main": "serialize.js",
+  "scripts": {
+    "compile": "tsc serialize.ts"
+  },
+  "author": "be2e@yandex.ru (elexpr)",
+  "license": "ISC",
+  "devDependencies": {
+    "tsc": "^2.0.4",
+    "typescript": "^4.6.4"
+  }
+}
