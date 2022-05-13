@@ -4,7 +4,7 @@
   "description": "Serialize JSON-response to class instance objects",
   "main": "serialize.js",
   "scripts": {
-    "compile": "tsc serialize.ts"
+    "compile": "tsc"
   },
   "author": "be2e@yandex.ru (elexpr)",
   "license": "ISC",

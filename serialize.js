@@ -10,7 +10,7 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 exports.Serialize = exports.SerializeModel = void 0;
 var SerializeModel = /** @class */ (function () {
     function SerializeModel() {
