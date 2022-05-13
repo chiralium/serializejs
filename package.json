@@ -1,5 +1,5 @@
 {
-  "name": "serialize",
+  "name": "@elexpr/serializejs",
   "version": "1.0.0",
   "description": "Serialize JSON-response to class instance objects",
   "main": "serialize.js",
@@ -11,5 +11,16 @@
   "devDependencies": {
     "tsc": "^2.0.4",
     "typescript": "^4.6.4"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chiralium/serializejs"
+  },
+  "private": false,
+  "keywords": [
+    "serialize",
+    "json serialize",
+    "api serialization",
+    "serialization"
+  ]
 }

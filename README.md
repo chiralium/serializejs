@@ -4,7 +4,7 @@ Examples:
 
 1. Create model and extend the `SerializeModel` abstract class:
 
-```
+```typescript
 export interface IDarkStore {
 	id: string;
 	netName: string;
@@ -45,7 +45,7 @@ export class DarkStore implements SerializeModel{
 ```
 
 2. Use the `Serialize` helper:
-```
+```typescript
 export class DarkStoreApi extends BaseApi {
 	constructor() {
 		super();
