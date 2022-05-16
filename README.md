@@ -1,3 +1,6 @@
+![NPM Downloads](https://img.shields.io/npm/dw/@elexpr/serializejs)
+![npm version](https://badge.fury.io/js/@elexpr%2Fserializejs.svg)
+
 ***SerializeJS***
 
 Examples:
@@ -25,7 +28,7 @@ export class DarkStore extends SerializeModel {
 	};
 
 	constructor(args: IDarkStore) {
-        super();
+		super();
         
 		this.id = args.id;
 		this.netName = args.netName;
@@ -65,4 +68,4 @@ export class DarkStoreApi extends BaseApi {
 
 define the generic types `DarkStore` as base type, `DarkStore[]` as generic type of base (as returned) & `IDarkStore` as type definition of constructor arguments.
 
-Use the `getModel`-method to getting class instance
+Use the `getModel`-method to getting class instance.
