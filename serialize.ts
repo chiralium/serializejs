@@ -50,11 +50,22 @@ export class Serialize<T extends SerializeModel, K, A> implements TSerialize<T, 
             }, {});
     };
 
+    private getRoot = () => {
+        if (!this.root) {
+            return {};
+        }
+
+        const pathItemList = this.root.split('->')
+            .map(pathItem => pathItem.trim());
+
+        return pathItemList.reduce((acc, pathItem) => {
+            return acc[pathItem];
+        }, this.data);
+    }
+
     private createModel = (): void => {
         try {
-            if (this.root) {
-                this.data = this.data[this.root];
-            }
+            this.data = this.getRoot();
 
             if (Array.isArray(this.data)) {
                 this.model = this.data.map(dataItem => new this.instanceConstructor(this.replaceKeys(dataItem) as A));

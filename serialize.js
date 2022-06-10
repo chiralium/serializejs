@@ -20,8 +20,8 @@ var SerializeModel = /** @class */ (function () {
 exports.SerializeModel = SerializeModel;
 var Serialize = /** @class */ (function () {
     function Serialize(_a) {
-        var _this = this;
         var data = _a.data, root = _a.root, instanceConstructor = _a.instanceConstructor;
+        var _this = this;
         this.replaceKeys = function (data) {
             if (!_this.replacingMap) {
                 return data;
@@ -36,11 +36,19 @@ var Serialize = /** @class */ (function () {
                 return __assign(__assign({}, acc), newPair);
             }, {});
         };
+        this.getRoot = function () {
+            if (!_this.root) {
+                return {};
+            }
+            var pathItemList = _this.root.split('->')
+                .map(function (pathItem) { return pathItem.trim(); });
+            return pathItemList.reduce(function (acc, pathItem) {
+                return acc[pathItem];
+            }, _this.data);
+        };
         this.createModel = function () {
             try {
-                if (_this.root) {
-                    _this.data = _this.data[_this.root];
-                }
+                _this.data = _this.getRoot();
                 if (Array.isArray(_this.data)) {
                     _this.model = _this.data.map(function (dataItem) { return new _this.instanceConstructor(_this.replaceKeys(dataItem)); });
                     return;

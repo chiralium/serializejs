@@ -21,6 +21,7 @@ export declare class Serialize<T extends SerializeModel, K, A> implements TSeria
     instanceConstructor: TModelConstructor<T, A>;
     constructor({ data, root, instanceConstructor }: TSerialize<T, A>);
     private replaceKeys;
+    private getRoot;
     private createModel;
     getModel: () => K;
 }

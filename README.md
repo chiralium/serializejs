@@ -69,3 +69,41 @@ export class DarkStoreApi extends BaseApi {
 define the generic types `DarkStore` as base type, `DarkStore[]` as generic type of base (as returned) & `IDarkStore` as type definition of constructor arguments.
 
 Use the `getModel`-method to getting class instance.
+
+
+If you need specify exactly the root of the response, for example:
+
+You have response like:
+
+```json
+{
+  "data": {
+    "list": {
+      "totalCount": 2,
+      "items": [
+        {
+          "modelName": 1
+        },
+        {
+          "modelName": 2
+        }
+      ]
+    }
+  },
+  "errors": {
+  },
+  "message": {
+  }
+}
+```
+
+So, you able to specify the root of response like that:
+
+```typescript
+import {Serialize} from "./serialize";
+
+new Serialize<Model, Model[], IModel>({
+    response: data,
+    root: 'data -> list -> items'
+})
+```
