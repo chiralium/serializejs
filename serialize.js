@@ -38,7 +38,7 @@ var Serialize = /** @class */ (function () {
         };
         this.getRoot = function () {
             if (!_this.root) {
-                return {};
+                return _this.data;
             }
             var pathItemList = _this.root.split('->')
                 .map(function (pathItem) { return pathItem.trim(); });
