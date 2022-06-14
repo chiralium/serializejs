@@ -52,7 +52,7 @@ export class Serialize<T extends SerializeModel, K, A> implements TSerialize<T, 
 
     private getRoot = () => {
         if (!this.root) {
-            return {};
+            return this.data;
         }
 
         const pathItemList = this.root.split('->')
