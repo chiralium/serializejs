@@ -1,6 +1,6 @@
 {
   "name": "@elexpr/serializejs",
-  "version": "1.2",
+  "version": "1.2.0",
   "description": "Serialize JSON-response to class instance objects",
   "main": "serialize.js",
   "scripts": {

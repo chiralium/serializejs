@@ -13,6 +13,7 @@ declare type TSerialize<T, A> = {
     root?: keyof Record<string, any>;
     instanceConstructor: TModelConstructor<T, A>;
 };
+export declare function serialized<BaseType, GenericType>(instanceConstructor: TModelConstructor<BaseType, BaseType>): (target: Record<string, any>, propertyKey: string) => any;
 export declare class Serialize<T extends SerializeModel, K, A> implements TSerialize<T, A> {
     model?: any;
     data: Record<string, any>;

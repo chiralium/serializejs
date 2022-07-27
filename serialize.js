@@ -11,13 +11,31 @@ var __assign = (this && this.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Serialize = exports.SerializeModel = void 0;
+exports.Serialize = exports.serialized = exports.SerializeModel = void 0;
 var SerializeModel = /** @class */ (function () {
     function SerializeModel() {
     }
     return SerializeModel;
 }());
 exports.SerializeModel = SerializeModel;
+function serialized(instanceConstructor) {
+    return function (target, propertyKey) {
+        return {
+            configurable: true,
+            enumerable: true,
+            get: function () {
+                return target["$$serialized__".concat(propertyKey)];
+            },
+            set: function (value) {
+                target["$$serialized__".concat(propertyKey)] = new Serialize({
+                    data: value,
+                    instanceConstructor: instanceConstructor,
+                }).getModel();
+            },
+        };
+    };
+}
+exports.serialized = serialized;
 var Serialize = /** @class */ (function () {
     function Serialize(_a) {
         var data = _a.data, root = _a.root, instanceConstructor = _a.instanceConstructor;
