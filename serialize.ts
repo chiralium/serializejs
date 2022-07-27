@@ -17,6 +17,26 @@ type TSerialize<T, A> = {
     instanceConstructor: TModelConstructor<T, A>,
 }
 
+export function serialized<BaseType, GenericType>(instanceConstructor: TModelConstructor<BaseType, BaseType>) {
+    return function(target: Record<string, any>, propertyKey: string): any {
+        return {
+            configurable: true,
+            enumerable: true,
+
+            get() {
+                return target[`$$serialized__${propertyKey}`];
+            },
+
+            set(value: GenericType) {
+                target[`$$serialized__${propertyKey}`] = new Serialize<BaseType, GenericType, BaseType>({
+                    data: value,
+                    instanceConstructor,
+                }).getModel();
+            },
+        };
+    };
+}
+
 export class Serialize<T extends SerializeModel, K, A> implements TSerialize<T, A>{
     public model?: any;
     public data: Record<string, any>;

@@ -107,3 +107,44 @@ new Serialize<Model, Model[], IModel>({
     root: 'data -> list -> items'
 })
 ```
+
+If you have complicated model, that containing another model, you can use decorators:
+
+```typescript
+import {serialized} from "./serialize";
+
+interface IUser {
+    name: string;
+    age: number;
+    email: string;
+}
+
+class User implements IUser {
+    public name: string;
+    public age: number;
+    public email: string;
+
+    constructor(props: IUser) {
+        this.name = props.name;
+        this.age = props.age;
+        this.email = props.email;
+    }
+}
+
+interface IEvent {
+    eventName: string;
+    userList: IUser[];
+}
+
+class Event implements IEvent {
+    public eventName: string;
+
+    @serialized<User, User[]>(User)
+    public userList: IUser[];
+
+    constructor(props: IEvent) {
+        this.eventName = props.eventName;
+        this.user = props.user;
+    }
+}
+```
