@@ -27,13 +27,13 @@ export class DarkStore extends SerializeModel {
 		"darkstore_coordinates": "coordinates",
 	};
 
-	constructor(args: IDarkStore) {
+	constructor(props: IDarkStore) {
 		super();
         
-		this.id = args.id;
-		this.netName = args.netName;
-		this.name = args.name;
-		this.coordinates = args.coordinates;
+		this.id = props.id;
+		this.netName = props.netName;
+		this.name = props.name;
+		this.coordinates = props.coordinates;
 	}
 
 	public get polygon(): number[][] {
